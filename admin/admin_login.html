@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login - Blood Donor System</title>
+
+  <link rel="stylesheet" href="../assets/css/admin_login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ✅ Login Form Container with Title Inside -->
+  <div class="login-container">
+    <div class="login-card">
+      <!-- ✅ Title Moved Here -->
+      <div class="form-title">
+        <h1>🩸 Blood Donor Connect System</h1>
+        <h3>Admin Login Panel</h3>
+      </div>
+
+      <form action="admin_login.php" method="POST" autocomplete="off">
+        <div class="input-box">
+          <i class="fas fa-envelope"></i>
+          <input type="email" name="email" placeholder="Enter admin email" required />
+        </div>
+        <div class="input-box">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" placeholder="Enter password" required />
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <div class="links">
+        <a href="admin_forgot_password.html"><i class="fas fa-exclamation-triangle"></i> Forgot password?</a>
+        <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to home</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

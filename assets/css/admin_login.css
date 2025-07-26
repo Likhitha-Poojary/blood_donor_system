@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f9fafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ✅ Login Box Container */
+.login-container {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 370px;
+}
+
+/* ✅ Title Styling Inside Card */
+.form-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-title h1 {
+  font-size: 20px;
+  color: #b30000;
+  margin-bottom: 5px;
+}
+
+.form-title h3 {
+  font-size: 18px;
+  color: #111;
+}
+
+/* ✅ Input Box Styling */
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 45px 12px 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+/* ✅ Login Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #c62828;
+}
+
+/* ✅ Link Styling */
+.links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: #000;
+}
+
+.links i {
+  margin-right: 5px;
+}
+
