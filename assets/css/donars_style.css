@@ -1,0 +1,112 @@
+/* Global styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ffe6e6, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container for the form */
+.container {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-top: 10px solid #d62828;
+    transition: 0.3s;
+}
+
+.container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading style */
+h2 {
+    text-align: center;
+    color: #d62828;
+    margin-bottom: 25px;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+/* Form labels */
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Text input fields */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+/* Styled select (dropdown) field */
+select {
+    width: 100%;
+    padding: 12px;
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5'%3E%3Cpath fill='red' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+    transition: border 0.3s;
+}
+
+/* Focus effects for inputs and select */
+input:focus,
+select:focus {
+    border-color: #d62828;
+    outline: none;
+    box-shadow: 0 0 5px rgba(214, 40, 40, 0.3);
+}
+
+/* Submit button */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #d62828;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #a71d1d;
+    transform: translateY(-2px);
+}
+
+/* Success or error message */
+#message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* Inline field errors */
+.error {
+    font-size: 14px;
+    color: red;
+    margin-bottom: 10px;
+    display: block;
+}
