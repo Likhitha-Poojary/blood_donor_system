@@ -1,143 +1,124 @@
-/* Global reset and box-sizing */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Full-height layout with center alignment */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #ffe6e6, #ffffff);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ffe6e6, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-/* Main container */
 .container {
-  width: 100%;
-  max-width: 420px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  border-top: 8px solid #d62828;
-  transition: 0.3s;
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #d62828;
+    transition: 0.3s;
 }
 
 .container:hover {
-  transform: scale(1.01);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: scale(1.01);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Heading */
 h2 {
-  text-align: center;
-  color: #d62828;
-  margin-bottom: 20px;
-  font-size: 24px;
-  letter-spacing: 0.5px;
+    text-align: center;
+    color: #d62828;
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
-/* Label styling */
 label {
-  display: block;
-  margin: 10px 0 5px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #333;
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
 }
 
-/* Input and dropdown fields */
-input,
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
 select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  font-size: 14px;
-  background-color: #fdfdfd;
-  transition: 0.3s;
+    background-color: #fdfdfd;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5'%3E%3Cpath fill='red' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
 }
 
-/* Select styling */
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5'%3E%3Cpath fill='red' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px top 50%;
-  background-size: 10px;
-  color: #333;
+input:focus, select:focus {
+    border-color: #d62828;
+    outline: none;
+    box-shadow: 0 0 5px rgba(214, 40, 40, 0.3);
 }
 
-/* Focus states */
-input:focus,
-select:focus {
-  border-color: #d62828;
-  outline: none;
-  box-shadow: 0 0 5px rgba(214, 40, 40, 0.3);
-}
-
-/* Submit button */
 button {
-  width: 100%;
-  padding: 10px;
-  background-color: #d62828;
-  color: white;
-  font-size: 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s;
+    width: 100%;
+    padding: 10px;
+    background-color: #d62828;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
 }
 
 button:hover {
-  background-color: #a71d1d;
-  transform: translateY(-2px);
+    background-color: #a71d1d;
+    transform: translateY(-2px);
 }
 
-/* Feedback message */
 #message {
-  text-align: center;
-  margin-top: 16px;
-  font-weight: bold;
-  font-size: 14px;
+    text-align: center;
+    margin-top: 16px;
+    font-weight: bold;
+    font-size: 14px;
 }
 
-/* Error message style */
 .error {
-  font-size: 13px;
-  color: red;
-  margin-bottom: 8px;
-  display: block;
+    font-size: 13px;
+    color: red;
+    margin-bottom: 8px;
+    display: block;
 }
-
-/* Responsive Design for Small Screens */
 @media (max-width: 480px) {
-  .container {
-    padding: 20px;
-  }
+    .container {
+        padding: 20px;
+    }
 
-  h2 {
-    font-size: 20px;
-  }
+    h2 {
+        font-size: 20px;
+    }
 
-  label {
-    font-size: 13px;
-  }
+    label {
+        font-size: 13px;
+    }
 
-  input,
-  select,
-  button {
-    font-size: 13px;
-    padding: 8px;
-  }
+    input, select, button {
+        font-size: 13px;
+        padding: 8px;
+    }
 
-  #message {
-    font-size: 13px;
-  }
+    #message {
+        font-size: 13px;
+    }
 }
