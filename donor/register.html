@@ -4,20 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Donor Registration</title>
-    <link rel="stylesheet" href="/assets/css/donars_style.css">
+    <link rel="stylesheet" href="../assets/css/donars_style.css">
+
 </head>
 <body>
     <div class="container">
         <h2>Donor Registration Form</h2>
-        <form id="donorForm">
+        <form id="donorForm" action="register.php" method="POST">
             <label for="name">Name:</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="name" required>
 
             <label for="age">Age:</label>
-            <input type="number" id="age" required>
+            <input type="number" id="age" name="age" required>
 
             <label for="gender">Gender:</label>
-            <select id="gender" required>
+            <select id="gender" name="gender" required>
                 <option value="" disabled selected>Select gender</option>
                 <option>Male</option>
                 <option>Female</option>
@@ -25,7 +26,7 @@
             </select>
 
             <label for="bloodGroup">Blood Group:</label>
-            <select id="bloodGroup" required>
+            <select id="bloodGroup" name="blood_group" required>
                 <option value="" disabled selected>Select blood group</option>
                 <option>A+</option>
                 <option>A-</option>
@@ -38,16 +39,18 @@
             </select>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" required>
+            <input type="email" id="email" name="email" required>
 
             <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" required>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
 
             <button type="submit">Register</button>
         </form>
         <div id="message"></div>
     </div>
-
     <script src="validation.js"></script>
 </body>
 </html>

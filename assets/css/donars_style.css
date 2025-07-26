@@ -45,7 +45,7 @@ label {
     color: #333;
 }
 
-input, select {
+input, select, textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -53,6 +53,10 @@ input, select {
     margin-bottom: 12px;
     font-size: 14px;
     transition: 0.3s;
+}
+
+textarea {
+    resize: vertical;
 }
 
 select {
@@ -64,7 +68,7 @@ select {
     background-size: 10px;
 }
 
-input:focus, select:focus {
+input:focus, select:focus, textarea:focus {
     border-color: #d62828;
     outline: none;
     box-shadow: 0 0 5px rgba(214, 40, 40, 0.3);
@@ -100,6 +104,7 @@ button:hover {
     margin-bottom: 8px;
     display: block;
 }
+
 @media (max-width: 480px) {
     .container {
         padding: 20px;
@@ -113,7 +118,7 @@ button:hover {
         font-size: 13px;
     }
 
-    input, select, button {
+    input, select, button, textarea {
         font-size: 13px;
         padding: 8px;
     }
