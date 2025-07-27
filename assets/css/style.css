@@ -104,3 +104,18 @@ body {
   padding: 15px 0;
   font-size: 0.9rem;
 }
+
+.nav-link.active {
+  opacity: 1;
+  color: #dc3545 !important;
+  text-shadow: 0 0 8px rgba(220, 53, 69, 0.7);
+  font-weight: 600;
+}
+.navbar {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+.btn-xs {
+  padding: 0.3rem 0.9rem; /* adjust as needed */
+  font-size: 0.75rem;
+  line-height: 1.2;
+}

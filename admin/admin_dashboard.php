@@ -26,7 +26,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 
     .dashboard-title {
       font-weight: 600;
-      color: #dc3545;
+      color: #b71c1c;
     }
 
     .card {
@@ -67,21 +67,21 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 border-bottom">
   <div class="container-fluid">
-    <a class="navbar-brand fw-semibold" href="#">Admin Dashboard</a>
+    <a class="navbar-brand fw-semibold" href="#" style="color: #b71c1c;">Admin Dashboard</a>
     
     <!-- Home Button -->
     <div class="ms-auto me-3">
-      <a href="admin.php" class="btn btn-outline-light btn-sm me-2">
+      <a href="admin.php" class="btn btn-outline-danger btn-sm me-2">
       <i class="bi bi-person-circle"></i> Admin
     </a>
-      <a href="../index.html" class="btn btn-outline-light btn-sm me-2">
+      <a href="../index.html" class="btn btn-outline-danger btn-sm me-2">
         <i class="bi bi-house-door-fill"></i> Home
       </a>
 
       <!-- Logout Button -->
-      <a href="logout.php" class="btn btn-outline-light btn-sm">
+      <a href="logout.php" class="btn btn-outline-danger btn-sm">
         Logout
       </a>
     </div>

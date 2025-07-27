@@ -39,23 +39,22 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger px-3">
-  <a class="navbar-brand fw-bold" href="#">
-    <i class="bi bi-droplet-half"></i> BloodConnect
-  </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-white px-4 shadow">
+  <a class="navbar-brand" href="#" style="color: #b71c1c;"><i class="bi bi-droplet-half"></i> BloodConnect
+    </a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ms-auto">
       <li class="nav-item">
-        <a class="nav-link" href="../index.html"><i class="bi bi-house-door"></i> Home</a>
+        <a class="btn btn-outline-danger btn-sm me-2" href="../index.html"><i class="bi bi-house-door"></i> Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" onclick="exportPDF()"><i class="bi bi-file-earmark-arrow-down-fill"></i> Export PDF</a>
+        <a class="btn btn-outline-danger btn-sm me-2" href="#" onclick="exportPDF()"><i class="bi bi-file-earmark-arrow-down-fill"></i> Export PDF</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="admin_dashboard.php"><i class="bi bi-arrow-left-circle"></i> Go to Dashboard</a>
+          <a class="btn btn-outline-danger btn-sm me-2" href="admin_dashboard.php"><i class="bi bi-arrow-left-circle"></i> Go to Dashboard</a>
         </li>
     </ul>
   </div>
