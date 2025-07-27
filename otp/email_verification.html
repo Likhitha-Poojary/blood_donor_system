@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification | LifeBlood Connect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/email_verification_style.css">
+
+</head>
+<body>
+    <div class="verification-container">
+        <div class="verification-header">
+            <i class="fas fa-envelope verification-icon"></i>
+            <h2>Verify Your Email</h2>
+            <p class="instruction-text">We've sent a 6-digit code to</p>
+            <p class="user-email">user@example.com</p>
+        </div>
+        
+        <form id="otpForm" class="otp-form">
+            <input type="text" 
+                   id="otpInput" 
+                   class="otp-input" 
+                   maxlength="6" 
+                   pattern="\d{6}" 
+                   placeholder="Enter 6-digit code" 
+                   required
+                   autocomplete="off"
+                   autofocus>
+            
+            <button type="submit" class="verify-btn">
+                Verify Code
+            </button>
+        </form>
+        
+        <div class="resend-section">
+            <p class="timer-text">Resend code in <span id="countdown">60</span>s</p>
+            <button id="resendBtn" class="resend-btn" disabled>
+                Resend OTP
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const otpInput = document.getElementById('otpInput');
+            const resendBtn = document.getElementById('resendBtn');
+            const countdownEl = document.getElementById('countdown');
+            let countdown = 60;
+            
+            // Format OTP input (add space after 3 digits for readability)
+            otpInput.addEventListener('input', function(e) {
+                const value = e.target.value.replace(/\s/g, '');
+                if (value.length > 6) {
+                    e.target.value = value.substring(0, 6);
+                }
+            });
+            
+            // Countdown timer for resend button
+            const timer = setInterval(() => {
+                countdown--;
+                countdownEl.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(timer);
+                    resendBtn.disabled = false;
+                    countdownEl.textContent = '0';
+                }
+            }, 1000);
+            
+            // Resend OTP functionality
+            resendBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Here you would call your backend to resend OTP
+                alert('A new OTP has been sent to your email.');
+                
+                // Reset countdown
+                countdown = 60;
+                countdownEl.textContent = countdown;
+                resendBtn.disabled = true;
+                
+                // Restart timer
+                const newTimer = setInterval(() => {
+                    countdown--;
+                    countdownEl.textContent = countdown;
+                    
+                    if (countdown <= 0) {
+                        clearInterval(newTimer);
+                        resendBtn.disabled = false;
+                        countdownEl.textContent = '0';
+                    }
+                }, 1000);
+            });
+            
+            // Form submission
+            document.getElementById('otpForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const otp = otpInput.value.replace(/\s/g, '');
+                
+                if (otp.length === 6 && /^\d+$/.test(otp)) {
+                    // Here you would validate the OTP with your backend
+                    alert('OTP submitted successfully!');
+                    // window.location.href = 'success.html'; // Redirect on success
+                } else {
+                    alert('Please enter a valid 6-digit code');
+                    otpInput.focus();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
