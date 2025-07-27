@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Search Blood donor</title>
+        <script src="search.js"></script>
+        <style>
+            body{
+                font-family: Arial, sans-serif;
+                background-color: #fff;
+                border: 3px solid black;
+                box-sizing: border-box;
+                border-radius: 20px;
+                max-width: 600px;
+                margin: 100px auto;
+                
+
+
+            }
+            h1{
+                text-align:center;
+                color: red;
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
+            form{
+                margin-bottom: 20px;
+            }
+            
+            input[type="text"],select{
+                width: 75%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid black;
+                border-radius: 8px;
+                box-sizing: border-box;
+                font-size: 16px;
+                margin-left: 20px;
+            }
+            label{
+                padding-left: 20px;
+                font-size: 25px;
+                display:block;
+                color: black;
+                font-weight: bold;
+                margin-bottom: 20px;
+                margin-top: 30px;
+
+            }
+            button{
+                margin-top: 20px;
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #d91c1c;
+                color: white;
+                border: 20px;
+                border-radius: 15px;
+                cursor: pointer;
+                display: flex;
+                margin-left: 250px;
+                
+            }
+            
+            table{
+                width:100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                border:1px solid black;
+            }
+            th,td{
+                padding:10px;
+                text-align: center;
+                border:1px solid black;
+                background-color: beige;
+            }
+            th{
+                font-size: large;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Search Donor</h1>
+        <form action="search.php" method="POST">
+                <label  for="city">City:</label>
+                <input type="text" id="city" name="city" required><br><br>
+        
+            <label for="blood_group">Blood Group:</label>
+            <select id="blood_group" name="blood_group" required>
+                <option value="">Blood group</option>
+                <option value="A+">A+</option>
+                <option value="B+">B+</option>
+                <option value="o+">O+</option>
+                <option value="AB+">AB+</option>
+                <option value="A-">A-</option>
+                <option value="B-">B-</option>
+                <option value="O-">O-</option>
+                <option value="AB-">AB-</option>
+            </select>
+            
+        <button type="submit">Search</button>
+        </form>
+        <div id="result"></div>
+        
+        
+    </body>
+</html>
