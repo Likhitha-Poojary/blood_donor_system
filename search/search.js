@@ -1,34 +1,25 @@
-document.addEventListener("DOMContentLoaded", function(){
-    const form=document.getElementById("searchForm");
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("searchForm");
 
-    // if(form){
-    form.addEventListener("submit", function(event){
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
-    
-    
-        const city=document.getElementById("city").value;
-        const bloodGroup=document.getElementById("blood_group").value;
 
-    
+        const city = document.getElementById("city").value;
+        const bloodGroup = document.getElementById("blood_group").value;
 
-
-        fetch("search.php",{
+        fetch("search.php", {
             method: "POST",
-            headers:{
-                "content-Type": "application/x-www-form-urlencoded"
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
             },
             body: `city=${encodeURIComponent(city)}&blood_group=${encodeURIComponent(bloodGroup)}`
         })
-        .then(response=>response.text())
-        .then(data=>{
-            document.getElementById("result").innerHTML=data;
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("result").innerHTML = data;
         })
-        .catch(error=>{
-            console.error("Error:",error);
-       
+        .catch(error => {
+            console.error("Error:", error);
         });
     });
 });
-
-
-

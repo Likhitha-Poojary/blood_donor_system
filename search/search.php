@@ -1,70 +1,89 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Donor Search Results</title>
-  <link rel="stylesheet" href="search.css">
-</head>
-<body>
-
-
 <?php
+include('../admin/db_config.php');
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "blood_donation";
+// Get the blood group and address from the previous form (via POST or SESSION)
+$bloodGroup = $_POST['blood_group'] ?? '';
+$address = $_POST['address'] ?? '';
 
-$conn = new mysqli($host,$user,$password,$database);
+if ($bloodGroup && $address) {
+    // Log the search query
+    $insertLog = $conn->prepare("INSERT INTO search_requests (blood_group, address, searched_at) VALUES (?, ?, NOW())");
+    $insertLog->bind_param("ss", $bloodGroup, $address);
+    $insertLog->execute();
 
-if ($conn->connect_error){
-    die("Connection failed:".$conn->connect_error);
-}
-
-$city=$_POST['city'] ?? '';
-$blood_group = $_POST['blood_group'] ?? '';
-
-
-
-$sql="SELECT name, age, gender, city, blood_group, last_donation FROM donors WHERE  city = '$city' AND blood_group = '$blood_group' " ;
-$result = $conn->query($sql);
-
-
-
-echo "<h2>Search Results</h2>";
-if($result->num_rows>0){
-    echo "<table>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>City</th>
-                <th>Blood_group</th>
-                <th>last Donation</th>
-            </tr>";
-        
-
-    while($row=$result->fetch_assoc()){
-        echo "<tr>
-                <td>{$row['name']}</td>
-                <td>{$row['age']}</td>
-                <td>{$row['gender']}</td>
-                <td>{$row['city']}</td>
-                <td>{$row['blood_group']}</td>
-                <td>{$row['last_donation']}</td>
-            </tr>";
-    }
-    echo "</table>";
-        
-       
+    // Fetch matching donors
+    $stmt = $conn->prepare("SELECT name, age, gender, phone, email, blood_group, address FROM donors WHERE blood_group = ? AND address LIKE ?");
+    $likeAddress = "%" . $address . "%";
+    $stmt->bind_param("ss", $bloodGroup, $likeAddress);
+    $stmt->execute();
+    $result = $stmt->get_result();
 } else {
-    echo "<p >No donors found .Try again with different filters.</p>";
+    echo "<script>alert('Invalid search. Please try again.'); window.location.href='../index.html';</script>";
+    exit();
 }
-
-    
-
-
-$conn->close();
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin-style Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-semibold" href="#" style="color: #b71c1c;">Search Results</a>
+            <div class="ms-auto me-3">
+                <a href="../index.html" class="btn btn-outline-danger btn-sm me-2">
+                    <i class="bi bi-house-door-fill"></i> Home
+                </a>
+                <a href="../search/search.html" class="btn btn-outline-danger btn-sm">
+                    <i class="bi bi-speedometer2"></i> Back to Search
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h4 class="mb-3 text-center text-danger">Matching Donors for Blood Group: <strong><?= htmlspecialchars($bloodGroup) ?></strong> in <strong><?= htmlspecialchars($address) ?></strong></h4>
+        <?php if ($result->num_rows > 0): ?>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle text-center">
+                    <thead class="table-danger">
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Blood Group</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($row['name']) ?></td>
+                                <td><?= htmlspecialchars($row['age']) ?></td>
+                                <td><?= htmlspecialchars($row['gender']) ?></td>
+                                <td><?= htmlspecialchars($row['phone']) ?></td>
+                                <td><?= htmlspecialchars($row['email']) ?></td>
+                                <td><?= htmlspecialchars($row['blood_group']) ?></td>
+                                <td><?= htmlspecialchars($row['address']) ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <div class="alert alert-warning text-center">
+                No donors found matching your criteria.
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
 </body>
 </html>

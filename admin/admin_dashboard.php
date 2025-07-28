@@ -107,7 +107,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     <div class="row g-4">
 
       <!-- Donor List -->
-      <div class="col-md-6 col-lg-3">
+      <div class="col-md-7 col-lg-4">
         <div class="card text-center p-4">
           <div class="card-body">
             <div class="card-icon"><i class="bi bi-people-fill"></i></div>
@@ -119,7 +119,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
       </div>
 
       <!-- Reports -->
-      <div class="col-md-6 col-lg-3">
+      <div class="col-md-7 col-lg-4">
         <div class="card text-center p-4">
           <div class="card-body">
             <div class="card-icon"><i class="bi bi-bar-chart-fill"></i></div>
@@ -130,20 +130,9 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
         </div>
       </div>
 
-      <!-- Feedback -->
-      <div class="col-md-6 col-lg-3">
-        <div class="card text-center p-4">
-          <div class="card-body">
-            <div class="card-icon"><i class="bi bi-chat-left-dots-fill"></i></div>
-            <h5 class="card-title">View Feedback</h5>
-            <p class="card-text">Read feedback from donors and requesters.</p>
-            <a href="view_feedback.php" class="btn btn-danger">View Feedback</a>
-          </div>
-        </div>
-      </div>
 
       <!-- Request List -->
-      <div class="col-md-6 col-lg-3">
+      <div class="col-md-7 col-lg-4">
         <div class="card text-center p-4">
           <div class="card-body">
             <div class="card-icon"><i class="bi bi-list-ul"></i></div>
